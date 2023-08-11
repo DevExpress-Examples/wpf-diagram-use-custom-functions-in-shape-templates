@@ -1,15 +1,23 @@
 <!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/657661393/17.1.3%2B)
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1174053)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# WPF DiagramControl - Complex expressions and custom functions in ShapeTemplates
 
-This example demonstrates how to write complex expressions and use custom functions to calculate a `Parameter`'s value in `ShapeTemplates`. You can use custom expressions or functions when you need to implement complex logic for `Parameters` like circular motion.
+# WPF DiagramControl - Complex Expressions and Custom Functions in Shape Templates
 
-ShapeTemplates accept common functions that implement the [ICustomFunctionOperator](https://docs.devexpress.com/CoreLibraries/DevExpress.Data.Filtering.ICustomFunctionOperator) interface. The language syntaxt used to calculate `Parameters` is the as the [Criteria Language Syntax](https://docs.devexpress.com/CoreLibraries/4928/devexpress-data-library/criteria-language-syntax).
+This example demonstrates how to specify complex expressions and use custom functions to calculate the `ShapeTemplate`'s [Parameter](https://docs.devexpress.com/CoreLibraries/DevExpress.Diagram.Core.Shapes.Parameter) value. You can use custom expressions or functions to implement complex logic for `Parameters` (for example, a circular motion).
 
-If you need to create a custom function that performs specific calculation, you need to implement the`ICustomFunctionOperator` interface and register the function using the `CriteriaOperator.RegisterCustomFunction` method.
+In this example, the custom **Sector** shape allows users to specify its angle:
+
+![image](https://github.com/DevExpress-Examples/wpf-custom-functions-ShapeTemplates/assets/65009440/21d31189-787e-4141-9d62-6a1f19325498)
+
+## Implementation Details
+
+`ShapeTemplates` accept functions that implement the [ICustomFunctionOperator](https://docs.devexpress.com/CoreLibraries/DevExpress.Data.Filtering.ICustomFunctionOperator) interface. The [Criteria Language Syntax](https://docs.devexpress.com/CoreLibraries/4928/devexpress-data-library/criteria-language-syntax) allows you to calculate shape `Parameters`.
+
+Follow the steps below to create a custom calculation function:
+1. Create a function class that implements the [ICustomFunctionOperator](https://docs.devexpress.com/CoreLibraries/DevExpress.Data.Filtering.ICustomFunctionOperator) interface.
+2. Use the [CriteriaOperator.RegisterCustomFunction](https://docs.devexpress.com/CoreLibraries/DevExpress.Data.Filtering.CriteriaOperator.RegisterCustomFunction(DevExpress.Data.Filtering.ICustomFunctionOperator)) method to register this function.
 
 ```cs
 public class CreateArcPoint : ICustomFunctionOperator {
@@ -72,18 +80,15 @@ public class CreateArcPoint : ICustomFunctionOperator {
 
 ## Files to Review
 
-- link.cs (VB: link.vb)
-- link.js
-- ...
+- [MainWindow.xaml.cs](./CS/WpfApp13/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/WpfApp13/MainWindow.xaml.vb))
+- [CustomShapes.xaml](./CS/WpfApp13/CustomShapes.xaml)
 
 ## Documentation
 
-- link
-- link
-- ...
+- [ICustomFunctionOperator](https://docs.devexpress.com/CoreLibraries/DevExpress.Data.Filtering.ICustomFunctionOperator)
+- [Shapes](https://docs.devexpress.com/WPF/116099/controls-and-libraries/diagram-control/diagram-items/shapes)
+- [Use Shape Templates to Create Shapes and Containers](https://docs.devexpress.com/WPF/117037/controls-and-libraries/diagram-control/diagram-items/creating-shapes-and-containers-using-shape-templates)
 
 ## More Examples
 
-- link
-- link
-- ...
+- [WPF DiagramControl - Create Custom Shapes with Connection Points](https://github.com/DevExpress-Examples/wpf-diagramdesigner-create-custom-shapes-with-connection-points)
