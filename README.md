@@ -5,7 +5,7 @@
 
 # WPF DiagramControl - Complex Expressions and Custom Functions in Shape Templates
 
-This example demonstrates how to specify complex expressions and use custom functions to calculate the `ShapeTemplate`'s [Parameter](https://docs.devexpress.com/CoreLibraries/DevExpress.Diagram.Core.Shapes.Parameter) value. You can use custom expressions or functions to implement a complex logic for `Parameters` (for example, a circular motion).
+This example demonstrates how to specify complex expressions and use custom functions to calculate the `ShapeTemplate`'s [Parameter](https://docs.devexpress.com/CoreLibraries/DevExpress.Diagram.Core.Shapes.Parameter) value. You can use custom expressions or functions to implement complex logic for `Parameters` (for example, a circular motion).
 
 In this example, the custom **Sector** shape allows users to specify its angle:
 
